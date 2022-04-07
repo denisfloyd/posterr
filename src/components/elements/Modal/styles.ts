@@ -7,6 +7,8 @@ export const ContainerModal = styled.div`
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.2);
+  overflow: overlay;
+  z-index: 2;
 `;
 
 export const Content = styled.section`
