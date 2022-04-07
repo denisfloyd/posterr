@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     --white: #FFFFFF;
     --black: #000000;
 
+    --gray-100: #EDEDF0;
     --gray-300: #B7B7C0;
     --gray-600: #4B4B62;
 
@@ -30,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    overflow: hidden;
+    background-color: var(--gray-100);
   }
 
   button, a {
@@ -47,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
   @media (max-width: ${BREAKPOINTS.xl}) {
     html {
       font-size: 93.75%;
-    }
+    }a
   }
 
   @media (max-width: ${BREAKPOINTS.lg}) {
