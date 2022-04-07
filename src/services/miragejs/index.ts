@@ -1,8 +1,14 @@
 import { faker } from "@faker-js/faker";
 
-import { createServer, Factory, Model, RestSerializer } from "miragejs";
+import {
+  createServer,
+  Factory,
+  Response,
+  Model,
+  RestSerializer,
+} from "miragejs";
 
-import { Post } from "./db/posts";
+import { Post } from "models/post";
 import { User, UsersData } from "./db/users";
 
 export function makeServer() {
@@ -45,7 +51,19 @@ export function makeServer() {
       this.get("/users");
       this.get("/users/:id");
 
-      this.get("/posts");
+      this.get("/posts", async function (schema, request) {
+        const posts = schema.all("post").models;
+
+        const postsSerialize = posts.map((post) => {
+          return {
+            ...post.attrs,
+            author: schema.find("user", post.attrs.author)?.attrs.user_name,
+          };
+        });
+
+        return new Response(200, {}, { posts: postsSerialize });
+      });
+
       this.patch("/posts/:id");
 
       // reset namespace
