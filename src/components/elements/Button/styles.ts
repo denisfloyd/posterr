@@ -12,13 +12,12 @@ interface ButtonProps {
 export const Container = styled.button<ButtonProps>`
   height: ${convertPixelToREM(40)};
   padding: ${SIZE._12} ${SIZE._16};
-  background-color: var(--blue-300);
+  background-color: var(--blue-200);
   color: var(--white);
-  border-radius: 4px;
+  border-radius: 16px;
   border: 0;
   font-size: ${SIZE._14};
   letter-spacing: 1.25px;
-  text-transform: uppercase;
   font-weight: ${FONT_WEIGHT.MEDIUM};
   cursor: pointer;
 
