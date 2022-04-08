@@ -89,6 +89,7 @@ const Post: React.FC = () => {
             value={textPost}
             onChange={(e) => setTextPost(e.target.value)}
             maxLength={777}
+            data-testid="text-area"
           ></TextArea>
           <TextaAreaRemain>
             Characters Remaining {textPost.length}/777

@@ -1,14 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import {
-  render,
   fireEvent,
   waitFor,
   renderWithStore,
   screen,
-  within,
+  act,
 } from "tests/test-utils";
 import AxiosMock from "axios-mock-adapter";
 
-import { useNavigate } from "react-router-dom";
+
 import { mocked } from "jest-mock";
 
 const apiMock = new AxiosMock(api);
@@ -18,7 +18,6 @@ jest.mock("react-router-dom");
 import { api } from "services/api";
 
 import Profile from ".";
-import { act } from "react-dom/test-utils";
 
 const Root = document.createElement("div");
 Root.setAttribute("id", "modal_root");
@@ -87,8 +86,10 @@ describe("Profile Modal Page", () => {
   });
 
   it("it should render correctly", async () => {
-    renderWithStore(<Profile />, {
-      container: document.body.appendChild(Root),
+    await act(async () => {
+      renderWithStore(<Profile />, {
+        container: document.body.appendChild(Root),
+      });
     });
 
     expect(screen.getByText("@johndoe")).toBeInTheDocument();
@@ -97,8 +98,10 @@ describe("Profile Modal Page", () => {
   });
 
   it("it should render correctly following users", async () => {
-    renderWithStore(<Profile />, {
-      container: document.body.appendChild(Root),
+    await act(async () => {
+      renderWithStore(<Profile />, {
+        container: document.body.appendChild(Root),
+      });
     });
 
     await waitFor(() => {
@@ -114,8 +117,10 @@ describe("Profile Modal Page", () => {
   });
 
   it("it should be able to follow a user", async () => {
-    renderWithStore(<Profile />, {
-      container: document.body.appendChild(Root),
+    await act(async () => {
+      renderWithStore(<Profile />, {
+        container: document.body.appendChild(Root),
+      });
     });
 
     await screen.findByText("jimdoe");
@@ -133,8 +138,10 @@ describe("Profile Modal Page", () => {
   });
 
   it("it should be able to unfollow a user", async () => {
-    renderWithStore(<Profile />, {
-      container: document.body.appendChild(Root),
+    await act(async () => {
+      renderWithStore(<Profile />, {
+        container: document.body.appendChild(Root),
+      });
     });
 
     await screen.findByText("jimdoe");
