@@ -19,7 +19,7 @@ import { Button } from "components/elements/Button";
 import { setAuthUser } from "store/modules/users/actions";
 import { Loader } from "components/elements/Loader";
 
-export const Profile: React.FC = () => {
+const Profile: React.FC = () => {
   const dispatch = useDispatch();
 
   const { index: user } = useSelector<IState, IUserState>(
@@ -149,3 +149,5 @@ export const Profile: React.FC = () => {
     </Modal>
   );
 };
+
+export default Profile;

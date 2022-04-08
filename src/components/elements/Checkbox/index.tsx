@@ -2,16 +2,19 @@ import { CheckBox, CheckBoxLabel, CheckBoxWrapper } from "./styles";
 
 interface CheckboxProps {
   onClick: () => void;
-  checked: boolean;
+  defaultChecked: boolean;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ checked, onClick }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({
+  defaultChecked,
+  onClick,
+}) => {
   return (
     <CheckBoxWrapper>
       <CheckBox
         id="checkbox"
         type="checkbox"
-        checked={checked}
+        defaultChecked={defaultChecked}
         onClick={onClick}
       />
       <CheckBoxLabel htmlFor="checkbox" />

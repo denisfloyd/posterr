@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { breakLine, flexbox, setDimensions } from "styles/abstracts/_mixins";
 import { SIZE } from "styles/abstracts/_variables";
 
-export const Container = styled.div`
+export const Container = styled.main`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
