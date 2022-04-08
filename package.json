@@ -26,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll",
+    "test": "react-scripts test --silent --watchAll",
     "test:coverage": "react-scripts test --coverage --silent --watchAll",
     "eject": "react-scripts eject"
   },
@@ -34,10 +34,13 @@
     "collectCoverageFrom": [
       "<rootDir>/**/*.tsx",
       "<rootDir>/**/*.ts",
-      "!<rootDir>/**/*styles.ts",
-      "!<rootDir>/src/@types/**",
+      "!<rootDir>/src/reportWebVitals.ts",
+      "!<rootDir>/**/styles.ts",
+      "!<rootDir>/src/routes/**",
       "!<rootDir>/src/App.tsx",
-      "!<rootDir>/src/index.tsx"
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/services/miragejs/**",
+      "!<rootDir>/src/styles/**"
     ],
     "resetMocks": true,
     "clearMocks": true

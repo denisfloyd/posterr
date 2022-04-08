@@ -37,6 +37,7 @@ export const Homepage: React.FC = () => {
   }, [data]);
 
   useEffect(() => {
+    console.log(searchParams.get("user"));
     if (searchParams.get("user") && data) {
       const userName = searchParams.get("user");
       setPosts(
