@@ -17,7 +17,7 @@
   Social media based on Twitter <br />
 
   <p align="center">
-   <img src="./.github/sample.png" alt="sample" width="300"/>
+   <img src="./.github/sample.png" alt="sample" width="700"/>
   </p>
 </p>
 
