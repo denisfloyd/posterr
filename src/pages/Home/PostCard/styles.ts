@@ -19,6 +19,7 @@ export const Container = styled.li`
     display: block;
     margin-top: ${SIZE._16};
     font-size: ${SIZE._14};
+    overflow-wrap: anywhere;
   }
 `;
 

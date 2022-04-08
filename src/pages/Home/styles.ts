@@ -38,6 +38,7 @@ export const CheckContainer = styled.div`
 `;
 
 export const Posts = styled.aside`
+  overflow: hidden;
   ul {
     list-style: none;
   }

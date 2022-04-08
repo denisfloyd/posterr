@@ -7,7 +7,7 @@ import AvatarImg from "assets/avatar.png";
 import { Checkbox } from "components/elements/Checkbox";
 import { LoadingState } from "components/widgets/LoadingState";
 
-import usePosts from "hooks/usePosts";
+import usePosts from "services/hooks/usePosts";
 
 import { Post } from "models/post";
 import { User } from "models/user";
@@ -39,7 +39,6 @@ export const Homepage: React.FC = () => {
   useEffect(() => {
     if (searchParams.get("user") && data) {
       const userName = searchParams.get("user");
-
       setPosts(
         data.posts.filter(
           (post) => post.authorName === userName || post.retweet
