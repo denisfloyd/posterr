@@ -81,7 +81,7 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <Modal>
+    <Modal rootElement={document.getElementById("modal_root") as HTMLElement}>
       <Container>
         <Content>
           <img src={AvatarImg} alt="avatar" />
@@ -104,12 +104,14 @@ const Profile: React.FC = () => {
 
                   {user.following.includes(userFromDb.id) ? (
                     <AiFillHeart
+                      data-testid="icon-heart-filled"
                       size={16}
                       color={"red"}
                       onClick={() => handleUpdateUser(userFromDb.id)}
                     />
                   ) : (
                     <AiOutlineHeart
+                      data-testid="icon-heart-outline"
                       size={16}
                       onClick={() => handleUpdateUser(userFromDb.id)}
                     />

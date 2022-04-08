@@ -26,8 +26,20 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --silent --watchAll",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/**/*.tsx",
+      "<rootDir>/**/*.ts",
+      "!<rootDir>/**/*styles.ts",
+      "!<rootDir>/src/@types/**",
+      "!<rootDir>/src/App.tsx",
+      "!<rootDir>/src/index.tsx"
+    ],
+    "resetMocks": true,
+    "clearMocks": true
   },
   "eslintConfig": {
     "extends": [

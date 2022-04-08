@@ -75,7 +75,10 @@ const Post: React.FC = () => {
   }, [navigate, searchParams]);
 
   return (
-    <Modal returnToMain>
+    <Modal
+      returnToMain
+      rootElement={document.getElementById("modal_root") as HTMLElement}
+    >
       <Container>
         <h3 className="title">
           {postRetweet ? "Retweet Post" : `New Post(err)`}

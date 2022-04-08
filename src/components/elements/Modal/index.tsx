@@ -7,9 +7,14 @@ import { ContainerModal, Content, Header } from "./styles";
 
 interface ModalProps {
   returnToMain?: boolean;
+  rootElement?: HTMLElement;
 }
 
-export const Modal: React.FC<ModalProps> = ({ returnToMain, children }) => {
+export const Modal: React.FC<ModalProps> = ({
+  returnToMain,
+  rootElement,
+  children,
+}) => {
   const navigate = useNavigate();
 
   const handleOnClose = () => {
@@ -44,6 +49,6 @@ export const Modal: React.FC<ModalProps> = ({ returnToMain, children }) => {
         {children}
       </Content>
     </ContainerModal>,
-    document.getElementById("modal_root") as HTMLElement
+    rootElement ?? document.body
   );
 };
