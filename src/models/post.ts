@@ -3,7 +3,7 @@ export type Post = {
   text?: string;
   createdAt: string;
   author: string;
-  authorName: string;
+  authorName?: string;
   retweet?: {
     text?: string;
   };

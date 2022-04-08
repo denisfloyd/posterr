@@ -22,6 +22,23 @@ export const Container = styled.li`
   }
 `;
 
+export const RetweetPostAlert = styled.div`
+  ${flexbox()};
+  gap: ${SIZE._8};
+  margin-bottom: ${SIZE._8};
+`;
+
+export const RetweetPostContainer = styled.div`
+  ${flexbox("column", "flex-start", "flex-start")};
+  gap: ${SIZE._8};
+  margin-bottom: ${SIZE._8};
+
+  p {
+    border: 1px solid var(--gray-300);
+    padding: ${SIZE._8};
+  }
+`;
+
 export const Actions = styled.div`
   margin-top: ${SIZE._16};
   display: flex;

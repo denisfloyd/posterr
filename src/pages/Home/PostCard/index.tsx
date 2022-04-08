@@ -1,34 +1,60 @@
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   AiOutlineRetweet,
   AiOutlineHeart,
   AiOutlineMessage,
 } from "react-icons/ai";
 
-import { Actions, Container } from "./styles";
+import { Post } from "models/post";
 
-interface IPost {
-  text?: string;
-  author: string;
-  authorName: string;
-  retweet?: {
-    text?: string;
-  };
-}
+import { IState } from "store";
+import { User } from "models/user";
+
+import {
+  Actions,
+  Container,
+  RetweetPostAlert,
+  RetweetPostContainer,
+} from "./styles";
 
 interface PostProps {
-  post: IPost;
+  post: Post;
 }
 
 export const PostCard: React.FC<PostProps> = ({ post }) => {
+  const user = useSelector<IState, User>((state) => state.users.index);
+
   return (
     <Container>
+      {post.retweet && (
+        <RetweetPostAlert>
+          <AiOutlineRetweet size={20} />
+          <h4>You retweet</h4>
+        </RetweetPostAlert>
+      )}
+
       <h3>{post.authorName}</h3>
-      <span>{post.text}</span>
+
+      {post.retweet?.text ? (
+        <RetweetPostContainer>
+          <span>{post.retweet.text}</span>
+          <p>{post.text}</p>
+        </RetweetPostContainer>
+      ) : (
+        <span>{post.text}</span>
+      )}
 
       <Actions>
-        <AiOutlineRetweet size={20} />
+        {!post.retweet && post.author !== user.id && (
+          <Link to={`/post?post=${post.id}`}>
+            <AiOutlineRetweet size={20} />
+          </Link>
+        )}
         <AiOutlineHeart size={20} />
         <AiOutlineMessage size={20} />
+
+        {/* {post.retweet?.text && <span>{post.retweet?.text}</span>} */}
       </Actions>
     </Container>
   );
