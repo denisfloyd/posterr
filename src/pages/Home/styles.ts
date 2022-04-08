@@ -24,7 +24,7 @@ export const Profile = styled.aside`
   transform: translateY(-100px);
 
   ${mediaQuery("max", "md")`
-    display: none;
+    transform: translateY(0);
   `}
 
   img {
