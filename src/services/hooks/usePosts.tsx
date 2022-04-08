@@ -7,12 +7,16 @@ interface Response {
 }
 
 const getPosts = async () => {
-  const response = await api.get("/posts");
-  return response.data;
+  try {
+    const response = await api.get("/posts");
+    return response.data;
+  } catch (error) {
+    return null;
+  }
 };
 
 export default function usePosts(): UseQueryResult<Response, unknown> {
-  return useQuery("posts", () => getPosts(), {
+  return useQuery(["posts"], () => getPosts(), {
     refetchInterval: 1000 * 60 * 1, // 1 minute
     refetchOnWindowFocus: false,
     refetchOnMount: true,

@@ -63,7 +63,6 @@ describe("Post Modal Page", () => {
 
     await waitFor(() => {
       expect(screen.getByText("New Post(err)")).toBeInTheDocument();
-      screen.debug();
     });
   });
 
@@ -84,7 +83,6 @@ describe("Post Modal Page", () => {
 
     await waitFor(() => {
       expect(screen.getByText("Retweet Post")).toBeInTheDocument();
-      screen.debug();
     });
   });
 
