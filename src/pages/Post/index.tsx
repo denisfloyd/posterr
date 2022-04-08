@@ -49,7 +49,7 @@ const Post: React.FC = () => {
       }
 
       queryClient.invalidateQueries("posts");
-      navigate(-1);
+      navigate("/");
     },
     [postRetweet, navigate, textPost, user]
   );
@@ -69,13 +69,13 @@ const Post: React.FC = () => {
           return;
         }
       } catch (error) {
-        return navigate(-1);
+        return navigate("/");
       }
     }
   }, [navigate, searchParams]);
 
   return (
-    <Modal>
+    <Modal returnToMain>
       <Container>
         <h3 className="title">
           {postRetweet ? "Retweet Post" : `New Post(err)`}

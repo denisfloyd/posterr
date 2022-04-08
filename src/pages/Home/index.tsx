@@ -1,15 +1,18 @@
+import { Suspense, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, Outlet, useNavigate, useSearchParams } from "react-router-dom";
+
 import AvatarImg from "assets/avatar.png";
+
 import { Checkbox } from "components/elements/Checkbox";
 import { LoadingState } from "components/widgets/LoadingState";
 
 import usePosts from "hooks/usePosts";
+
 import { Post } from "models/post";
 import { User } from "models/user";
-import { Suspense, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, Outlet, useNavigate, useSearchParams } from "react-router-dom";
+
 import { IState } from "store";
-import { IUserState } from "store/modules/users/types";
 
 import { Header } from "./Header";
 import { PostCard } from "./PostCard";

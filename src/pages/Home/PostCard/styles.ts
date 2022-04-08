@@ -46,9 +46,9 @@ export const Actions = styled.div`
 
   svg {
     cursor: not-allowed;
+  }
 
-    &:first-child {
-      cursor: pointer;
-    }
+  svg.cursor {
+    cursor: pointer;
   }
 `;

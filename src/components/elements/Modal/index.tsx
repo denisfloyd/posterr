@@ -5,10 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 import { ContainerModal, Content, Header } from "./styles";
 
-export const Modal: React.FC = ({ children }) => {
+interface ModalProps {
+  returnToMain?: boolean;
+}
+
+export const Modal: React.FC<ModalProps> = ({ returnToMain, children }) => {
   const navigate = useNavigate();
 
   const handleOnClose = () => {
+    if (returnToMain) {
+      navigate("/");
+      return;
+    }
     navigate(-1); // go back
   };
 

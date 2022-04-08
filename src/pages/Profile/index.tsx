@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 import { Post } from "models/post";
 import { User } from "models/user";
-
-import { Modal } from "components/elements/Modal";
 
 import { IState } from "store";
 import { IUserState } from "store/modules/users/types";
@@ -14,10 +13,12 @@ import { api } from "services/api";
 
 import AvatarImg from "assets/avatar.png";
 
-import { Container, Content, Feed, Network, FeedHeader } from "./styles";
+import { Modal } from "components/elements/Modal";
 import { Button } from "components/elements/Button";
 import { setAuthUser } from "store/modules/users/actions";
 import { Loader } from "components/elements/Loader";
+
+import { Container, Content, Feed, Network, FeedHeader } from "./styles";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatch();
@@ -125,7 +126,9 @@ const Profile: React.FC = () => {
         <h2>Feed</h2>
         <div>
           <span>Posts: {myPosts.length}</span>
-          <Button>New Posterr</Button>
+          <Link to={`/post`}>
+            <Button>New Posterr</Button>
+          </Link>
         </div>
       </FeedHeader>
 

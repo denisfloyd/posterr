@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 import {
   AiOutlineRetweet,
   AiOutlineHeart,
@@ -7,9 +8,9 @@ import {
 } from "react-icons/ai";
 
 import { Post } from "models/post";
+import { User } from "models/user";
 
 import { IState } from "store";
-import { User } from "models/user";
 
 import {
   Actions,
@@ -48,13 +49,11 @@ export const PostCard: React.FC<PostProps> = ({ post }) => {
       <Actions>
         {!post.retweet && post.author !== user.id && (
           <Link to={`/post?post=${post.id}`}>
-            <AiOutlineRetweet size={20} />
+            <AiOutlineRetweet className="cursor" size={20} />
           </Link>
         )}
         <AiOutlineHeart size={20} />
         <AiOutlineMessage size={20} />
-
-        {/* {post.retweet?.text && <span>{post.retweet?.text}</span>} */}
       </Actions>
     </Container>
   );
