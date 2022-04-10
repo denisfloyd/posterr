@@ -4,8 +4,6 @@ import { ANIMATIONS, FONT_WEIGHT, SIZE } from "styles/abstracts/_variables";
 import styled, { css } from "styled-components";
 
 interface ButtonProps {
-  hasIcon?: boolean;
-  isIconButton?: boolean;
   shape?: "default" | "square" | "circle";
 }
 
@@ -43,13 +41,6 @@ export const Container = styled.button<ButtonProps>`
   }
 
   ${(props) =>
-    props.hasIcon &&
-    css`
-      ${flexbox()};
-      gap: ${SIZE._8};
-    `}
-
-  ${(props) =>
     props.shape === "square" &&
     css`
       border-radius: 0;
@@ -59,17 +50,5 @@ export const Container = styled.button<ButtonProps>`
     props.shape === "circle" &&
     css`
       border-radius: 50%;
-    `}
-
-  ${(props) =>
-    props.isIconButton &&
-    props.shape === "circle" &&
-    css`
-      padding: 0;
-      ${setDimensions("32px")};
-
-      & > svg {
-        font-size: 1.3rem;
-      }
     `}
 `;
