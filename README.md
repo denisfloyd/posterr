@@ -92,8 +92,68 @@ $ yarn test:coverage
 Feel free to **file a new issue** with a respective title and description on the the [posterr](https://github.com/denismend/posterr/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**!
 
 # :bookmark: Planning
+## "reply-to-post"
+<br/>
+
+- Questions to Product Manager:
+
+<br/>
+
+```
+When do we plan to release this feature?
+
+Are we going to implement it on the retweet page?
+
+Will users be mentioned within the retweet area or in a new field?
+
+Wouldn't it be interesting to implement a way to notify the user?
+
+Are we going to consider this post way to be a Quote Post ?
+
+Will it be possible to mention more than one user?
+```
+<br/>
+
+- Implementation
+
+<br/>
+
+```
+In the database first of all we need to add a string field which mentions users mentioning with @.
+
+It would be extremely important that a search be performed every time a user starts mentioning a user using a debounce when the user is typing.
+
+If we have a notification system we must activate a job in the backend that sent the notification to the mentioned user.
+
+If users were mentioned within the area where the user quotes post, it is necessary for the backend to split those users that are mentioned within the string.
+
+In the interface we could create two tabs. In one we can present the vision we already have and in the other we can present the posts that are replicated.
+
+On the "Post and replies" page we can make the request and implement a pooling and caching of this data with react-query.
+
+```
+
+<br/>
 
 # :rainbow: Critique
+
+<br />
+
+```
+Firstly, the UX/UI issue of the application should be greatly improved. We need to review accessibility issues like contrast, hotkeys, improving feedback for fields and buttons, etc.
+
+Search post. We need to make a search in the posts and the replies. However, in the application, the filter we have performs the filtering through the front end. Which would be considerable in some cases. But in this one in particular, it would be interesting to move the filters to the back-end.
+
+In search, I would develop a text field debounce to ease user search. If we did the search through the front-end, it would be interesting to save all the post data in a React-redux store.
+
+We need to re-implement the way we request data. Today, all data is requested. This works when we have little data. But never in an application with a considered user and information base.
+
+Maybe change the architecture we have today to SSR instead of a SPA. Or a new codebase in Remix.run, for example, to make server-side calls and minimize loading times, giving our application a considerable performance.
+
+```
+
+<br/>
+
 # :tada: Contributing
 
 There are many forms to contribute with the project, first of all you can give this github repo a Star.
