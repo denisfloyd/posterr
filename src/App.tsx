@@ -8,7 +8,7 @@ import { AppRoutes } from "routes";
 
 import store from "store";
 
-function App() {
+export function App(): JSX.Element {
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
@@ -20,5 +20,3 @@ function App() {
     </Provider>
   );
 }
-
-export default App;
