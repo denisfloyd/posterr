@@ -118,7 +118,6 @@ Will it be possible to mention more than one user?
 
 <br/>
 
-```
 In the database first of all we need to add a string field which mentions users mentioning with @.
 
 It would be extremely important that a search be performed every time a user starts mentioning a user using a debounce when the user is typing.
@@ -131,15 +130,13 @@ In the interface we could create two tabs. In one we can present the vision we a
 
 On the "Post and replies" page we can make the request and implement a pooling and caching of this data with react-query.
 
-```
-
 <br/>
 
 # :rainbow: Critique
 
 <br />
 
-```
+
 Firstly, the UX/UI issue of the application should be greatly improved. We need to review accessibility issues like contrast, hotkeys, improving feedback for fields and buttons, etc.
 
 Search post. We need to make a search in the posts and the replies. However, in the application, the filter we have performs the filtering through the front end. Which would be considerable in some cases. But in this one in particular, it would be interesting to move the filters to the back-end.
@@ -150,7 +147,7 @@ We need to re-implement the way we request data. Today, all data is requested. T
 
 Maybe change the architecture we have today to SSR instead of a SPA. Or a new codebase in Remix.run, for example, to make server-side calls and minimize loading times, giving our application a considerable performance.
 
-```
+Implementing 'End-to-end' tests would be important in the main functions of our application.
 
 <br/>
 
